@@ -61,4 +61,17 @@ Bioconda (and conda-forge for non bioinformatics specific tools) has an in-depth
 In short, you need to fork the bioconda/recipes github repository: https://github.com/bioconda/bioconda-recipes/
 Then you need to add a folder for your tool in the `recipes` folder. Here you need to include a `meta.yaml` file with all the instructions for your tool to be published to bioconda and subsequently containerized in bio-containers. An example of my file can be found [here](https://github.com/bioconda/bioconda-recipes/blob/master/recipes/flexi-formatter/meta.yaml). Once you've created the `meta.yaml` you can PR request to get it to build and merge in the bioconda-recipes github. Once this succesfully merges, your tool will be available in bioconda and also as a docker/singularity container: https://biocontainers.pro/
 
+To test the linting and building of new tools locally:
+```
+# You can use "conda create" here instead, if you don't have mamba installed
+mamba create -n bioconda -c conda-forge -c bioconda bioconda-utils
+
+conda activate bioconda
+
+# optional linting
+bioconda-utils lint --git-range master
+
+# build and test
+bioconda-utils build --docker --mulled-test --git-range master
+```
 
