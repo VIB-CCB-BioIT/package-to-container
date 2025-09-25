@@ -56,7 +56,7 @@ Now, whenever you make a new release on your github, a new action should start (
 
 ## Use the bioconda/recipes github to push your tool to bioconda.
 
-Bioconda (and conda-forge for non bioinformatics specific tools) has an in-depth guide available [here](https://bioconda.github.io/contributor/guidelines.html).
+Bioconda (and conda-forge for non bioinformatics specific tools) has an in-depth guide available [here](https://bioconda.github.io/contributor/guidelines.html) and [here](https://bioconda.github.io/tutorials/2024-adding-bioinformatic-software-to-bioconda.html).
 
 In short, you need to fork the bioconda/recipes github repository: https://github.com/bioconda/bioconda-recipes/
 Then you need to add a folder for your tool in the `recipes` folder. Here you need to include a `meta.yaml` file with all the instructions for your tool to be published to bioconda and subsequently containerized in bio-containers. An example of my file can be found [here](https://github.com/bioconda/bioconda-recipes/blob/master/recipes/flexi-formatter/meta.yaml). Once you've created the `meta.yaml` you can PR request to get it to build and merge in the bioconda-recipes github. Once this succesfully merges, your tool will be available in bioconda and also as a docker/singularity container: https://biocontainers.pro/
